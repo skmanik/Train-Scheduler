@@ -42,6 +42,17 @@ $("#add-train-btn").on("click", function(event) {
 
     console.log("Before push!", train, destination, firstTrain, frequency);
 
+    if (train === "" || destination === "" || firstTrain === "" || frequency === "") {
+
+        $("#train-input").val("");
+        $("#dest-input").val("");
+        $("#first-input").val("");
+        $("#freq-input").val("");
+
+        return;
+
+    } else {
+
     // stores new train data
     var newTrain = {
         train: train,
@@ -60,6 +71,10 @@ $("#add-train-btn").on("click", function(event) {
     $("#first-input").val("");
     $("#freq-input").val("");
 
+    document.getElementById("trains").scrollIntoView({behavior: "smooth"});
+
+    }
+
 });
 
 // allows initial presentation of database
@@ -67,11 +82,36 @@ database.ref().on("child_added", function(snapshot) {
 
     var sv = snapshot.val();
 
-    var tr = $("<tr>");
-    $("#trains tbody").append(tr);
+    // ==========================
+    // ====== calculations ======
+    // ==========================
+
+    // get difference between first train time and current time
+    var firstTrainConverted = moment(sv.first, "HH:mm").subtract(1, "years");
+    console.log("First Time: " + firstTrainConverted);
+
+    var currentTime = moment();
+    console.log("Current Time: " + moment(currentTime).format("hh:mm A"));
+
+    var diffTime = currentTime.diff(moment(firstTrainConverted), "minutes");
+    console.log("Difference: " + diffTime);
+
+    // get minutes away using difference and frequency
+    var tRemainder = diffTime % sv.frequency;
+    console.log("Remainder: " + tRemainder);
+
+    var tMinutesAway = sv.frequency - tRemainder;
+    console.log("Minutes Away: " + tMinutesAway);
+
+    // get next arrival
+    var nextTrain = moment().add(tMinutesAway, "minutes");
+    var nextTrainConverted = moment(nextTrain).format("hh:mm A");
+    console.log("Arrival Time: " + nextTrainConverted);
 
     // display
-    tr.append("<td>" + sv.train + "</td>", "<td>" + sv.destination + "</td>", "<td>" +  sv.frequency + "</td>", "<td></td>" + "<td></td>");
+    var tr = $("<tr>");
+    tr.append("<td>" + sv.train + "</td>", "<td>" + sv.destination + "</td>", "<td>" +  sv.frequency + "</td>", "<td>" + nextTrainConverted + "</td>", "<td>" + tMinutesAway + "</td>");
+    $("#trains tbody").append(tr);
 
     console.log(sv.train, sv.destination, sv.first, sv.frequency);
 

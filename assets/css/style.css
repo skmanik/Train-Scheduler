@@ -6,7 +6,6 @@ html, body {
 
 body {
     background-color: #CE9FFC;
-    /* check prefix */
     background-image: linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%);
     background-attachment: fixed;
     color: #fff;
@@ -150,7 +149,7 @@ body {
 
 /* animations */
 
-.table-hover>tbody>tr:hover {
+.main .table-hover>tbody>tr:hover {
     cursor: pointer;
     background-color: #7f6df240;
 }
