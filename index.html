@@ -18,57 +18,54 @@
 </head>
 
 <body>
-    <!-- header -->
-    <div class="jumbotron text-center masthead">
-        <svg aria-hidden="true" data-prefix="fas" data-icon="subway" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 96v256c0 51.815-61.624 96-130.022 96l62.98 49.721C386.905 502.417 383.562 512 376 512H72c-7.578 0-10.892-9.594-4.957-14.279L130.022 448C61.82 448 0 403.954 0 352V96C0 42.981 64 0 128 0h192c65 0 128 42.981 128 96zM200 232V120c0-13.255-10.745-24-24-24H72c-13.255 0-24 10.745-24 24v112c0 13.255 10.745 24 24 24h104c13.255 0 24-10.745 24-24zm200 0V120c0-13.255-10.745-24-24-24H272c-13.255 0-24 10.745-24 24v112c0 13.255 10.745 24 24 24h104c13.255 0 24-10.745 24-24zm-48 56c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm-256 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg>
-        <h1 class="text-center">A Nifty Train Schedule</h1>
-        <h3 class="text-center">Because trains wait for nobody. Not even you.</h3>
-        <a class="btn-add">Add a Train</a>
-    </div>
+    <div class="all-wrap">
 
-    <!-- wrapper -->
-    <div class="container main">
-        <div class="wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-                            <table id="trains" class="table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Train</th>
-                                        <th>Destination</th>
-                                        <th>Frequency (in min)</th>
-                                        <th>Next Arrival</th>
-                                        <th>Minutes Away</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Tokyo Metro</td>
-                                        <td>Shibuya</td>
-                                        <td>6000</td>
-                                        <td>3:43 A.M.</td>
-                                        <td>5</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+        <!-- header -->
+        <div class="jumbotron text-center masthead">
+            <svg aria-hidden="true" data-prefix="fas" data-icon="subway" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M448 96v256c0 51.815-61.624 96-130.022 96l62.98 49.721C386.905 502.417 383.562 512 376 512H72c-7.578 0-10.892-9.594-4.957-14.279L130.022 448C61.82 448 0 403.954 0 352V96C0 42.981 64 0 128 0h192c65 0 128 42.981 128 96zM200 232V120c0-13.255-10.745-24-24-24H72c-13.255 0-24 10.745-24 24v112c0 13.255 10.745 24 24 24h104c13.255 0 24-10.745 24-24zm200 0V120c0-13.255-10.745-24-24-24H272c-13.255 0-24 10.745-24 24v112c0 13.255 10.745 24 24 24h104c13.255 0 24-10.745 24-24zm-48 56c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm-256 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg>
+            <h1 class="text-center">A Nifty Train Schedule</h1>
+            <h3 class="text-center">Because trains wait for nobody. Not even you.</h3>
+            <a class="btn-add">Add a Train</a>
+        </div>
+
+        <!-- wrapper -->
+        <div class="container main">
+            <div class="wrapper table-container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <table id="trains" class="table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 30%">Train</th>
+                                            <th style="width: 20%">Destination</th>
+                                            <th style="width: 20%">Frequency (in min)</th>
+                                            <th style="width: 20%">Next Arrival</th>
+                                            <th style="width: 10%">Minutes Away</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <!-- trains will appear here -->
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="wrapper form-container">
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title text-center">Add a Train</h3>
-                        </div>
-                        <div class="panel-body">
-
+            <div class="wrapper form-container" id="form-section">
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title text-center">Add a Train</h3>
+                            </div>
+                            <div class="panel-body">
                                 <form>
                                     <div class="form-group">
                                         <label for="train-input">Train</label>
@@ -79,7 +76,7 @@
                                         <input class="form-control" id="dest-input" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <label for="first-input">First Train Time (in military time)</label>
+                                        <label for="first-input">First Train Time (in military time, HH:mm)</label>
                                         <input class="form-control" id="first-input" type="text">
                                     </div>
                                     <div class="form-group">
@@ -88,21 +85,20 @@
                                     </div>
                                     <button class="btn btn-submit" id="add-train-btn" type="submit">Submit Form</button>
                                 </form>
-
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+        <!-- firebase -->
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+
+        <!-- javascript -->
+        <script src="assets/javascript/app.js"></script>
+
     </div>
-
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-
-    <!-- javascript -->
-    <script src="assets/javascript/app.js"></script>
-
 </body>
 
 </html>
