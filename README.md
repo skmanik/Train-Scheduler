@@ -10,6 +10,6 @@ GitHub Pages Link: [Train-Scheduler](https://skmanik.github.io/Train-Scheduler)
 
 - Firebase database to store and load train times. These are continuously synchronized, so multiple tabs are supported
 
-- Trains are stored as object containing train name, destination, first departure time, and departure frequency
+- Trains are stored as objects containing train name, destination, first departure time, and departure frequency
 
 - Uses Moment.js to parse, format, and compute each train's next arrival time
