@@ -8,7 +8,7 @@ Live site: https://skmanik.github.io/Train-Scheduler
 * Use the form at the bottom of the page to add a train to the schedule.
 * Note: Be sure to fill in all of the inputs or the form will not register.
 
-## Implementation Details
+## Implementation
 
 * Firebase database to store and load train times. These are continuously synchronized, so multiple tabs are supported
 * Trains are stored as objects containing train name, destination, first departure time, and departure frequency
